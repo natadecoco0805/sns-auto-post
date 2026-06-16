@@ -18,10 +18,11 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Requests
-        run: pip install requests
-
+      - name: Install dependencies
+        run: pip install requests google-genai
+        
       - name: Run Script
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python discord_post.py
