@@ -23,6 +23,8 @@ jobs:
         
       - name: Run Script
         env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DISCORD_WEBHOOK_INVESTMENT: ${{ secrets.DISCORD_WEBHOOK_INVESTMENT }}
+          DISCORD_WEBHOOK_BEAUTY: ${{ secrets.DISCORD_WEBHOOK_BEAUTY }}
+          DISCORD_WEBHOOK_GADGET: ${{ secrets.DISCORD_WEBHOOK_GADGET }}
         run: python discord_post.py
