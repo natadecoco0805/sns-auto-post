@@ -29,12 +29,30 @@ def fetch_investment_news():
     except Exception as e:
         return f"ニュース取得失敗: {e}"
 
+import time
+
 def generate_post(prompt):
-    response = client.models.generate_content(
-        model="gemini-2.5-flash",
-        contents=prompt,
-    )
-    return response.text.strip()
+    models = [
+        "gemini-2.5-flash",
+        "gemini-2.0-flash",
+    ]
+
+    last_error = None
+
+    for model in models:
+        for attempt in range(3):
+            try:
+                response = client.models.generate_content(
+                    model=model,
+                    contents=prompt,
+                )
+                return response.text.strip()
+
+            except Exception as e:
+                last_error = e
+                time.sleep(5 * (attempt + 1))
+
+    return f"投稿案生成に失敗しました。\n理由: {last_error}"
 
 now = get_jst_now()
 current_time = now.strftime("%Y/%m/%d %H:%M")
