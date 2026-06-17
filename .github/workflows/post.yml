@@ -1,6 +1,6 @@
-name: Discord Post Test
+name: Discord Schedule
 
-"on":
+on:
   workflow_dispatch:
   schedule:
     - cron: "*/15 * * * *"
