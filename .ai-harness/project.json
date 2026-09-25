@@ -1,0 +1,18 @@
+{
+  "schema": "ai-dev-harness-project/v1",
+  "target_repository": "natadecoco0805/sns-auto-post",
+  "allowed_base_branches": [
+    "main"
+  ],
+  "verification_profiles": [
+    "python-syntax"
+  ],
+  "allowed_exact_paths": [
+    "README.md",
+    "discord_post.py"
+  ],
+  "allowed_directory_prefixes": [
+    "data/"
+  ],
+  "max_changed_files": 20
+}
